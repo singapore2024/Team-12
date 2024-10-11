@@ -56,7 +56,10 @@ export default function NavBar() {
           </NavigationMenuList>
         </NavigationMenu>
       </div>
-      <div className="ml-auto">
+      <div className="flex ml-auto gap-4">
+        <Link href="/profile" legacyBehavior passHref>
+          <Button variant="outline">Manage Your Listings</Button>
+        </Link>
         <Button variant="outline">Log In</Button>
       </div>
     </div>

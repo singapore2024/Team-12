@@ -7,9 +7,6 @@ import { requests } from "./requests";
 export default function ProfilePage() {
   return (
     <div className="bg-white">
-      <div className="p-10 bg-emerald-700">
-        <NavBar></NavBar>
-      </div>
       {/* page content */}
       <div className="flex flex-row">
         {/* my own listings */}

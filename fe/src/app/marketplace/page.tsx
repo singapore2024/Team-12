@@ -15,11 +15,11 @@ export default function MarketplacePage() {
   const isPending = false;
 
   return (
-    <div className="p-12">
-      <h1 className="text-2xl leading-loose">Marketplace</h1>
+    <div className="bg-white p-12">
+      <h1 className="text-2xl leading-loose text-black">Marketplace</h1>
       <Separator className="my-4" />
       <div className="flex justify-between items-end space-x-4 mb-4">
-        <div className="w-full">
+        <div className="w-full text-black">
           <Label className="mb-2 text-italic">Search</Label>
           <Input placeholder="Search for your listings" />
         </div>
