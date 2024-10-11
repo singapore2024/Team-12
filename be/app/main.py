@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from app.controller import user_controller
 
+
 app = FastAPI()
 
 # CORS configuration
@@ -19,3 +20,6 @@ app.include_router(user_controller.router)
 @app.get("/")
 def read_root():
     return {"message": "This is our app!"}
+
+
+
