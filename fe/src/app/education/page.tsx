@@ -1,8 +1,10 @@
 import Link from 'next/link'; // Assuming you're using Next.js for routing
+import NavBar from "@/components/navbar/navbar";
 
 export default function Education() {
   return (
     <div className="grid grid-rows-[auto_1fr_auto] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)] bg-white">
+      <NavBar></NavBar>
       <div className="px-4 sm:px-10 lg:px-10">
         <h2 className="text-center text-black">
           We, at MGDT, believe that growing your own food should be an enjoyable and accessible experience for everyone. To help you get started,
