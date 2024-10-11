@@ -1,6 +1,7 @@
 from pydantic import BaseModel, Field
 from typing import Optional
 from bson import ObjectId
+import uuid
 
 class PyObjectId(ObjectId):
     @classmethod
@@ -14,11 +15,14 @@ class PyObjectId(ObjectId):
         return ObjectId(v)
 
     @classmethod
-    def __modify_schema__(cls, field_schema):
-        field_schema.update(type="string")
+    def __get_pydantic_json_schema__(cls, schema, handler):
+        schema = handler(schema)
+        schema.update(type="string")
+        return schema
 
 
 class UserBase(BaseModel):
+    user_id: str = Field(default_factory=lambda: str(uuid.uuid4()))
     name: str
     email_address: str
     address: str
@@ -31,8 +35,8 @@ class UserBase(BaseModel):
 
     class Config:
         json_encoders = {ObjectId: str}
-        allow_population_by_field_name = True
-        arbitrary_types_allowed = True
+        populate_by_name = True
+        from_attributes = True
 
 
 class UserCreate(UserBase):
@@ -50,8 +54,7 @@ class UserUpdate(BaseModel):
 
 class UserOut(UserBase):
     id: PyObjectId = Field(default_factory=PyObjectId, alias="_id")
-    user_id: int
 
     class Config:
-        orm_mode = True
+        from_attributes = True
         json_encoders = {ObjectId: str}
