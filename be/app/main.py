@@ -73,10 +73,38 @@ async def get_plant_advice(request: MessageRequest):
         return {"response": response_message}
     except Exception as e:
         print(e)
+        
+@app.post("/get-plant-advice")
+async def get_plant_advice(request: MessageRequest):
+    try:
+        # Create the chat completion request using Groq API
+        completion = client.chat.completions.create(
+            model="llama-3.2-11b-vision-preview",
+            messages=[
+                {
+                    "role": "user",
+                    "content": [
+                        {
+                            "type": "text",
+                            "text": request.message
+                        }
+                    ]
+                }
+            ],
+            temperature=1,
+            max_tokens=1024,
+            top_p=1,
+            stream=False,
+            stop=None,
+        )
+
+        # Correctly access the content of the response message
+        # Use dot notation instead of square brackets
+        response_message = completion.choices[0].message.content['text']
+        return {"response": response_message}
+    except Exception as e:
+        print(e)
         # Return a 400 error if something goes wrong
         # raise HTTPException(status_code=400, detail=f"Error: {str(e)}")
 
-# # Run the FastAPI app using Uvicorn if this script is run directly
-# if __name__ == "__main__":
-#     import uvicorn
-#     uvicorn.run(app, host="0.0.0.0", port=8000)
+# Run the FastAPI app using Uvicorn if this script is run directly

@@ -3,6 +3,7 @@ import axios from "axios";
 import { isPast, secondsToMilliseconds } from "date-fns";
 import {jwtDecode} from 'jwt-decode'
 
+export const API_BASE_URL =  `${process.env.NEXT_PUBLIC_API_URL}`;
 export const ACCESS_TOKEN_KEY = "accessToken";
 
 /**
@@ -36,6 +37,7 @@ export async function getAxiosConfig(): Promise<AxiosRequestConfig> {
   return {
     headers: {
       Authorization: `Bearer ${accessToken}`,
+      'Access-Control-Allow-Origin': '*',
     },
     withCredentials: false,
     withXSRFToken: true,
