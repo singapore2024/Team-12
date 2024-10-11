@@ -8,6 +8,8 @@ router = APIRouter(
     tags=["users"]
 )
 
+
+
 @router.post("/", response_model=UserOut)
 async def create_user(user: UserCreate, db = Depends(get_db)):
     db_user = user_service.get_user_by_email(db, user.email_address)

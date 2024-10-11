@@ -2,16 +2,12 @@ from app.repository import listing_repository
 from app.schema.listing_schema import ListCreate, ListingUpdate
 
 # Function to create a new user
-def create_user(db, list: ListCreate):
+def create_listing(db, list: ListCreate):
     return listing_repository.create_user(db, list)
 
 # Function to retrieve a user by user_id
-def get_user(db, list_id: str):
+def get_listing(db, list_id: str):
     return listing_repository.get_user_by_list_id(db, list_id)
-
-# Function to retrieve a user by email address
-def get_user_by_email(db, email_address: str):
-    return listing_repository.get_user_by_email(db, email_address)
 
 # Function to update a user by user_id
 def update_listing(db, list_id: str, list_data: ListingUpdate):

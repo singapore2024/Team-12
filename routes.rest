@@ -1,2 +1,13 @@
 ###
+# POST request to the FastAPI /get-plant-advice endpoint
+POST http://127.0.0.1:8000/get-plant-advice
+Content-Type: application/json
+
+{
+    "message": "My plant is dying, please help"
+}
+
+###
+# Additional GET request (if you have a GET endpoint defined)
+GET http://127.0.0.1:8000/get-plant-advice
 ###
