@@ -4,6 +4,7 @@ import "./globals.css";
 import Providers from "./providers";
 import NavBar from "@/components/navbar/navbar";
 import { Toaster } from "@/components/ui/toaster";
+import ChatWidget from "@/components/chatbox/ChatWidget";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -36,6 +37,7 @@ export default function RootLayout({
             <NavBar></NavBar>
           </div>
           {children}
+          <ChatWidget/>
         </Providers>
         <Toaster/>
       </body>
