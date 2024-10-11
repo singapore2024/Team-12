@@ -1,27 +1,3 @@
-from fastapi import FastAPI
-from fastapi.middleware.cors import CORSMiddleware
-from app.controller import user_controller
-
-
-app = FastAPI()
-
-# CORS configuration
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
-
-# Include routers here
-app.include_router(user_controller.router)
-
-@app.get("/")
-def read_root():
-    return {"message": "This is our app!"}
-
-
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 from groq import Groq
@@ -65,18 +41,16 @@ async def get_plant_advice(request: MessageRequest):
             stream=False,
             stop=None,
         )
-        # print(completion)
-        # Extract the response message from the API's response
-        response_message = completion.choices[0].message.content
-        
-        
+
+        # Correctly access the content of the response message
+        # Use dot notation instead of square brackets
+        response_message = completion.choices[0].message.content['text']
         return {"response": response_message}
     except Exception as e:
-        print(e)
         # Return a 400 error if something goes wrong
-        # raise HTTPException(status_code=400, detail=f"Error: {str(e)}")
+        raise HTTPException(status_code=400, detail=f"Error: {str(e)}")
 
-# # Run the FastAPI app using Uvicorn if this script is run directly
-# if __name__ == "__main__":
-#     import uvicorn
-#     uvicorn.run(app, host="0.0.0.0", port=8000)
+# Run the FastAPI app using Uvicorn if this script is run directly
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run(app, host="0.0.0.0", port=8000)

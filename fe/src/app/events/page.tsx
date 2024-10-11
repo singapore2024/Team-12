@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link'; // Assuming you're using Next.js for routing
 import NavBar from "@/components/navbar/navbar";
+import { useToast } from '@/hooks/use-toast';
 
 const events = [
   {
@@ -44,7 +45,7 @@ export default function Education() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedEvent, setSelectedEvent] = useState(null);
   const [formData, setFormData] = useState({ name: '', phone: '', email: '' });
-
+  const {toast} = useToast();
   const handleRSVPClick = (event) => {
     setSelectedEvent(event);
     setIsModalOpen(true);
@@ -62,6 +63,10 @@ export default function Education() {
     setIsModalOpen(false);
     // Reset form data
     setFormData({ name: '', phone: '', email: '' });
+    toast({
+      variant: "success",
+      title: "RSVP Confirmed! See you then!",
+    })
   };
 
   const handleCancel = () => {
@@ -71,7 +76,7 @@ export default function Education() {
 
   return (
     <div className="bg-white">
-      <div className="bg-white py-10 flex flex-col items-center">
+      <div className="bg-white pt-10 flex flex-col items-center">
         <h2 className="text-center text-black max-w-2xl mb-10">
           Welcome to our Community Garden Events! We’re excited to bring together gardening 
           enthusiasts and newcomers alike for a fun and enriching experience. Join us as <strong>we dig into the joys of planting, 
@@ -80,7 +85,7 @@ export default function Education() {
         </h2>
       </div>
 
-      <div className="grid grid-cols-1 gap-8 w-full max-w-6xl mx-auto mt-12">
+      <div className="grid grid-cols-1 gap-8 w-full max-w-6xl mx-auto p-12">
         {events.map((event, index) => (
           <div key={index} className="flex bg-white border border-gray-200 rounded-lg shadow-lg overflow-hidden">
             <div className="flex-shrink-0 w-1/3">
