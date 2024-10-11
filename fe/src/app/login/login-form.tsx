@@ -1,6 +1,6 @@
 'use client';
 
-import { useLogin } from '@/api/hooks/useAuth';
+import { useSignin } from '@/api/hooks/useAuth';
 import { FormTextInput } from '@/components/form-inputs/form-text-input'
 import { Button } from '@/components/ui/button'
 import { Form } from '@/components/ui/form'
@@ -22,7 +22,7 @@ const defaultValues: LoginFormValues = {
 }
 
 export default function LoginForm() {
-    const loginMutation = useLogin();
+    const loginMutation = useSignin();
 
     const form = useForm<LoginFormValues>({
         defaultValues,
