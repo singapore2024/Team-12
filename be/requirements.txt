@@ -1,0 +1,10 @@
+fastapi
+uvicorn
+psycopg2
+supabase
+pydantic
+asyncpg
+python-dotenv
+starlette
+motor
+pymongo
