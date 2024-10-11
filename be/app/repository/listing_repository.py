@@ -24,8 +24,6 @@ def create_listing(db, list: ListCreate):
 def get_user_by_list_id(db, list_id: str):
     return db.users.find_one({"listing_id": list_id})
 
-def get_user_by_email(db, email_address: str):
-    return db.users.find_one({"email_address": email_address})
 
 def update_listing(db, list_id: int, list_data: ListingUpdate):
     result = db.users.update_one(
