@@ -33,7 +33,7 @@ export default function LoginForm() {
   });
 
   const handleSubmit = (values: LoginFormValues) => {
-    router.push("/");
+    router.push("/home");
   };
 
   return (

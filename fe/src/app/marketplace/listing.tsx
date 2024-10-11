@@ -46,52 +46,62 @@ export default function ListingCard({ listing, show }: P) {
             </Avatar>{" "}
             <p>{authorName}</p>
           </div>
-          {show && (
-            <Dialog>
-              <DialogTrigger asChild>
-                <Button variant="outline">Barter</Button>
-              </DialogTrigger>
-              <DialogContent className="sm:max-w-[425px] bg-white">
-                <DialogHeader>
-                  <DialogTitle>Your offer</DialogTitle>
-                </DialogHeader>
-                <div className="grid gap-4 py-4">
-                  <div className="grid grid-cols-4 items-center gap-4">
-                    <Label htmlFor="name" className="text-left">
-                      Produce Name
-                    </Label>
-                    <Input id="name" defaultValue="" className="col-span-3" />
-                  </div>
-                  <div className="grid grid-cols-4 items-center gap-4">
-                    <Label htmlFor="quantity" className="text-left">
-                      Quantity
-                    </Label>
-                    <Input
-                      id="quantity"
-                      defaultValue=""
-                      className="col-span-3"
-                    />
-                  </div>
-                  <div className="grid grid-cols-4 items-center gap-4">
-                    <Label htmlFor="description" className="text-left">
-                      Description
-                    </Label>
-                    <Textarea
-                      id="description"
-                      defaultValue=""
-                      rows={10}
-                      className="col-span-3"
-                    />
-                  </div>
-                </div>
-                <DialogFooter>
-                  <Button type="submit" onClick={() => router.push("/barter")}>
-                    Request
+          <div className="flex gap-5">
+            <Button variant="outline" className="bg-green-700 text-white">
+              Purchase
+            </Button>
+            {show && (
+              <Dialog>
+                <DialogTrigger asChild>
+                  <Button variant="outline" className="bg-blue-700 text-white">
+                    Barter
                   </Button>
-                </DialogFooter>
-              </DialogContent>
-            </Dialog>
-          )}
+                </DialogTrigger>
+                <DialogContent className="sm:max-w-[425px] bg-white text-black">
+                  <DialogHeader>
+                    <DialogTitle>Your offer</DialogTitle>
+                  </DialogHeader>
+                  <div className="grid gap-4 py-4">
+                    <div className="grid grid-cols-4 items-center gap-4">
+                      <Label htmlFor="name" className="text-left">
+                        Produce Name
+                      </Label>
+                      <Input id="name" defaultValue="" className="col-span-3" />
+                    </div>
+                    <div className="grid grid-cols-4 items-center gap-4">
+                      <Label htmlFor="quantity" className="text-left">
+                        Quantity
+                      </Label>
+                      <Input
+                        id="quantity"
+                        defaultValue=""
+                        className="col-span-3"
+                      />
+                    </div>
+                    <div className="grid grid-cols-4 items-center gap-4">
+                      <Label htmlFor="description" className="text-left">
+                        Description
+                      </Label>
+                      <Textarea
+                        id="description"
+                        defaultValue=""
+                        rows={10}
+                        className="col-span-3"
+                      />
+                    </div>
+                  </div>
+                  <DialogFooter>
+                    <Button
+                      type="submit"
+                      onClick={() => router.push("/barter")}
+                    >
+                      Request
+                    </Button>
+                  </DialogFooter>
+                </DialogContent>
+              </Dialog>
+            )}
+          </div>
         </div>
         <div className="italic">Last posted: 2 days ago</div>
       </CardContent>
