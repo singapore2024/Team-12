@@ -23,9 +23,11 @@ export default function ListingsPage() {
             </Link>
         </div>
         {marketplaceListings && (
-            <div className="mx-auto">
+            <div className="mx-auto w-[480px]">
             {marketplaceListings.map((listing) => (
-                <ListingCard key={listing.id} listing={listing} />
+                <div key={listing.id}>
+                    <ListingCard key={listing.id} listing={listing} show={false} />
+                </div>
             ))}
             </div>
         )}

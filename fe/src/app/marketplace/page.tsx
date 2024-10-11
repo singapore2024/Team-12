@@ -26,7 +26,7 @@ export default function MarketplacePage() {
       </div>
       {isPending && <Loading />}
       {marketplaceListings && (
-        <div className="mx-auto space-y-5">
+        <div className="mx-auto space-y-5 w-[480px]">
           {marketplaceListings.map((listing) => (
             <ListingCard key={listing.id} listing={listing} show={true} />
           ))}
