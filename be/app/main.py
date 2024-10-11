@@ -65,13 +65,16 @@ async def get_plant_advice(request: MessageRequest):
             stream=False,
             stop=None,
         )
-
+        # print(completion)
         # Extract the response message from the API's response
-        response_message = completion.choices[0].message['content']['text']
+        response_message = completion.choices[0].message.content
+        
+        
         return {"response": response_message}
     except Exception as e:
+        print(e)
         # Return a 400 error if something goes wrong
-        raise HTTPException(status_code=400, detail=f"Error: {str(e)}")
+        # raise HTTPException(status_code=400, detail=f"Error: {str(e)}")
 
 # # Run the FastAPI app using Uvicorn if this script is run directly
 # if __name__ == "__main__":
