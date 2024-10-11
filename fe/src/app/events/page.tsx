@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link'; // Assuming you're using Next.js for routing
 import NavBar from "@/components/navbar/navbar";
+import { useToast } from '@/hooks/use-toast';
 
 const events = [
   {
@@ -44,7 +45,7 @@ export default function Education() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedEvent, setSelectedEvent] = useState(null);
   const [formData, setFormData] = useState({ name: '', phone: '', email: '' });
-
+  const {toast} = useToast();
   const handleRSVPClick = (event) => {
     setSelectedEvent(event);
     setIsModalOpen(true);
@@ -62,6 +63,10 @@ export default function Education() {
     setIsModalOpen(false);
     // Reset form data
     setFormData({ name: '', phone: '', email: '' });
+    toast({
+      variant: "success",
+      title: "RSVP Confirmed! See you then!",
+    })
   };
 
   const handleCancel = () => {
