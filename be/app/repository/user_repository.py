@@ -21,7 +21,7 @@ def create_user(db, user: UserCreate):
     user_dict["_id"] = result.inserted_id
     return user_dict
 
-def get_user_by_user_id(db, user_id: int):
+def get_user_by_user_id(db, user_id: str):
     return db.users.find_one({"user_id": user_id})
 
 def get_user_by_email(db, email_address: str):
