@@ -13,6 +13,7 @@ const signupFormSchema = z.object({
   name: z.string().min(1, "Name is required"),
   email: z.string().min(1, "Email is required"),
   password: z.string().min(1, "Password is required"),
+  age: z.string().min(1, "Age is required"),
   address: z.string().min(1, "Address is required"),
   phoneNumber: z.string().min(1, "Phone number is required"),
 });
@@ -23,6 +24,7 @@ const defaultValues: SignupFormValues = {
   name: "",
   email: "",
   password: "",
+  age: "",
   address: "",
   phoneNumber: "",
 };
@@ -53,6 +55,14 @@ export default function SignupForm() {
           label="Password"
           inputProps={{
             type: "password",
+          }}
+          form={form}
+        />
+        <FormTextInput
+          name="age"
+          label="Age"
+          inputProps={{
+            type: "number",
           }}
           form={form}
         />

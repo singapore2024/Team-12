@@ -1,5 +1,5 @@
 from app.repository import user_repository
-from app.schema.user_schema import UserCreate, UserUpdate
+from app.schema.user_schema import UserCreate, UserUpdate, UserLogin
 
 # Function to create a new user
 def create_user(db, user: UserCreate):

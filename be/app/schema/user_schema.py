@@ -20,6 +20,10 @@ class PyObjectId(ObjectId):
         schema.update(type="string")
         return schema
 
+class UserLogin(BaseModel):
+    email_address: str
+    password: str
+
 
 class UserBase(BaseModel):
     user_id: str = Field(default_factory=lambda: str(uuid.uuid4()))

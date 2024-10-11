@@ -16,6 +16,17 @@ def create_user(db, user: UserCreate):
     user_id = get_next_user_id(db)
     
     user_dict["user_id"] = user_id
+    user_dict["name"] = user.name
+    user_dict["email_address"] = user.email_address
+
+    salt = bcrypt.gensalt(rounds=15)
+    hashed_password = bcrypt.hashpw(user.password, salt)
+
+    user_dict["password"] = hashed_password
+    user_dict["address"] = user.address
+    user_dict["phone_number"] = user.phone_number
+    user_dict["wallet"] = user.wallet
+    user_dict["age"] = user.age
     
     result = db.users.insert_one(user_dict)
     user_dict["_id"] = result.inserted_id

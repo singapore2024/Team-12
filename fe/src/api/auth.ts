@@ -49,12 +49,19 @@ export async function signUp(data: {
   name: string;
   email: string;
   password: string;
+  age: string;
   address: string;
   phoneNumber: string;
 }) {
   try {
+    console.log("sending");
     const { setUser, setIsLoggedIn } = useContext(AuthContext);
-    const res = await clientPost(`${BASE_AUTH_URL}/signup`, data);
+    console.log("sending1");
+    const res = await clientPost(`${BASE_AUTH_URL}/signup`, {
+      ...data,
+      age: +data.age,
+      wallet: 0,
+    });
     setUser(res.data.user);
     setIsLoggedIn(true);
 
