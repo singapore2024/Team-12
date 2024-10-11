@@ -5,6 +5,7 @@ import { clientDelete, clientGet, clientPost } from "./base";
 import type { User } from "@/types/user";
 import { useContext } from "react";
 import { AuthContext } from "@/context/AuthContext";
+import { useRouter } from "next/router";
 
 // leaving this in auth.ts for now because function of auth and users are so closely linked
 export const BASE_USERS_URL = `http://localhost:8000`;
@@ -27,22 +28,9 @@ export async function getCurrentUser(): Promise<User | null> {
 }
 
 export async function signIn(data: any) {
-  try {
-    const { setUser, setIsLoggedIn } = useContext(AuthContext);
-    const res = await clientPost(`${BASE_AUTH_URL}/login`, data);
-    setUser(res.data.user);
-    setIsLoggedIn(true);
-
-    return res.data.backendTokens.accessToken;
-  } catch (err: any) {
-    if (axios.isAxiosError(err)) {
-      throw new Error(err.response?.data.message);
-    } else {
-      throw new Error(
-        `${err.message}. Unable to login at this time. Please try again later.`
-      );
-    }
-  }
+  //   const router = useRouter();
+  //   router.push("/");
+  return;
 }
 
 export async function signUp(data: {

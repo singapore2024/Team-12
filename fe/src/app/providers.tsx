@@ -12,8 +12,6 @@ type P = {
 
 export default function Providers({ children }: P) {
   return (
-    <AuthContextProvider>
-      <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
-    </AuthContextProvider>
+    <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
   );
 }

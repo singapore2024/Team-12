@@ -45,16 +45,8 @@ export function FormImageUpload(props: FormFileUploadProps) {
 
     setIsUploading(true);
 
-    for (let i = 0; i < files.length; i++) {
-        const formData = new FormData();
-        const file = files[i];
-        formData.append("file", file);
-        const res = await clientPatch(fileUploadEndpoint, formData);
-        const urls = res.data;
-        form.setValue(name, urls);
-    }
 
-
+    form.setValue(name, files[0])
     setIsUploading(false);
   };
 
@@ -75,7 +67,7 @@ export function FormImageUpload(props: FormFileUploadProps) {
                     id="image"
                     type="file"
                     label={label?.toString() ?? ""}
-                    description="Select up to 10 images"
+                    description="Select an image"
                     onChange={handleFileUpload}
                   />
                 </div>
