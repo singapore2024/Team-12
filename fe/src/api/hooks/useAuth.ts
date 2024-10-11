@@ -29,14 +29,7 @@ export function useLogin() {
   return useMutation({
     mutationFn: signIn,
     onSuccess: (res) => {
-      const accessToken = res.data.token;
-      queryClient.invalidateQueries({ queryKey: ["me"] });
-      localStorage.setItem(ACCESS_TOKEN_KEY, accessToken);
-      toast({
-        title: "Login successful",
-        variant: "success",
-      });
-      router.push("/admin");
+      router.push("/");
     },
     onError: (err: AxiosError) => {
       if (err.response!.status != 500) {

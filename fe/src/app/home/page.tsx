@@ -5,9 +5,6 @@ import NavBar from "@/components/navbar/navbar";
 export default function HomePage() {
   return (
     <div className="bg-white">
-      <div className="p-10 bg-emerald-700">
-        <NavBar></NavBar>
-      </div>
       <div className="bg-white py-10">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <div className="mx-auto max-w-2xl lg:text-center">

@@ -14,12 +14,12 @@ import {
 
 export default function NavBar() {
   return (
-    <div className="flex text-black">
+    <div className="flex text-white ">
       <div className="mx-auto">
         <NavigationMenu>
           <NavigationMenuList>
             <NavigationMenuItem>
-              <Link href="/login" legacyBehavior passHref>
+              <Link href="/home" legacyBehavior passHref>
                 <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                   Home
                 </NavigationMenuLink>
