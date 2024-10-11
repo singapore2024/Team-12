@@ -14,7 +14,7 @@ export default function MarketplacePage() {
   const offer = marketplaceListings[1];
 
   return (
-    <div>
+    <div className="bg-white text-black">
       <h1 className="text-2xl leading-loose text-center font-bold">
         Barter request
       </h1>

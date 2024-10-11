@@ -60,7 +60,9 @@ export default function NavBar() {
         <Link href="/profile" legacyBehavior passHref>
           <Button variant="outline">Manage Your Listings</Button>
         </Link>
-        <Button variant="outline">Log In</Button>
+        <Link href="/login" legacyBehavior passHref>
+          <Button variant="outline">Log In</Button>
+        </Link>
       </div>
     </div>
   );
