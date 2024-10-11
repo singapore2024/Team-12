@@ -3,17 +3,20 @@ import NavBar from "@/components/navbar/navbar";
 
 export default function Education() {
   return (
-    <div className="grid grid-rows-[auto_1fr_auto] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)] bg-white">
-      <NavBar></NavBar>
-      <div className="px-4 sm:px-10 lg:px-10">
-        <h2 className="text-center text-black">
+    <div className="bg-white">
+      <div className="p-10 bg-emerald-700">
+        <NavBar />
+      </div>
+      <div className="bg-white py-10 flex flex-col items-center">
+        
+        <h2 className="text-center text-black max-w-2xl">
           We, at MGDT, believe that growing your own food should be an enjoyable and accessible experience for everyone. To help you get started,
           here are 3 easy steps that will guide you on your journey to cultivating your very own garden!
         </h2>
       </div>
 
       {/* Grid for the 3 centered cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 w-full max-w-4xl">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 w-full max-w-4xl mx-auto mt-8">
         {/* First card */}
         <div className="relative border border-gray-300 p-4 rounded-lg shadow-lg">
           <Link href="/step1">
@@ -67,7 +70,7 @@ export default function Education() {
       </div>
 
       {/* Articles and Videos Section */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-4xl mt-12">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full max-w-4xl mx-auto mt-12">
         {/* Articles Section */}
         <div>
           <h3 className="text-xl font-semibold mb-4 text-center text-emerald-700">Related Articles</h3>
@@ -91,18 +94,17 @@ export default function Education() {
               <p className="mt-2 text-gray-600">A guide on how to ensure your plants get off to a good start with 3 simple steps.</p>
             </div>
             <div className="border border-gray-300 p-4 rounded-lg shadow-lg">
-              <Link href="https://www.chelseagreen.com/2018/seed-series-soil-health/?srsltid=AfmBOopg5bVXlWs71Adasvoiv6tq06ztgj_wFnbjSViY7v9shZ6x6vuo" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">
-                <h4 className="font-bold text-black">3 Steps to Start Your Plants Off Right</h4>
+              <Link href="https://ediblecapecod.ediblecommunities.com/food-thought/plotting-and-planning-planting" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">
+                <h4 className="font-bold text-black">The Plotting and Planning of Planting</h4>
               </Link>
-              <p className="mt-2 text-gray-600">A guide on how to ensure your plants get off to a good start with 3 simple steps.</p>
+              <p className="mt-2 text-gray-600">Insights into how to effectively plan your planting process.</p>
             </div>
             <div className="border border-gray-300 p-4 rounded-lg shadow-lg">
-              <Link href="https://www.chelseagreen.com/2018/seed-series-soil-health/?srsltid=AfmBOopg5bVXlWs71Adasvoiv6tq06ztgj_wFnbjSViY7v9shZ6x6vuo" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">
-                <h4 className="font-bold text-black">3 Steps to Start Your Plants Off Right</h4>
+              <Link href="https://ediblecapecod.ediblecommunities.com/food-thought/plotting-and-planning-planting" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">
+                <h4 className="font-bold text-black">The Plotting and Planning of Planting</h4>
               </Link>
-              <p className="mt-2 text-gray-600">A guide on how to ensure your plants get off to a good start with 3 simple steps.</p>
+              <p className="mt-2 text-gray-600">Insights into how to effectively plan your planting process.</p>
             </div>
-
 
           </div>
         </div>
@@ -141,6 +143,13 @@ export default function Education() {
           </div>
         </div>
       </div>
+      <br>
+      </br>
+      <br>
+      </br>
+      <br>
+      </br>
     </div>
+
   );
 }
