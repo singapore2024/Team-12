@@ -5,6 +5,7 @@ import { FormTextInput } from "@/components/form-inputs/form-text-input";
 import { Button } from "@/components/ui/button";
 import { Form } from "@/components/ui/form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useRouter } from "next/navigation";
 import React from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -23,6 +24,7 @@ const defaultValues: LoginFormValues = {
 
 export default function LoginForm() {
   const loginMutation = useLogin();
+  const router = useRouter();
 
   const form = useForm<LoginFormValues>({
     defaultValues,
@@ -31,7 +33,7 @@ export default function LoginForm() {
   });
 
   const handleSubmit = (values: LoginFormValues) => {
-    loginMutation.mutate(values);
+    router.push("/");
   };
 
   return (
