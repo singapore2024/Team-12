@@ -14,8 +14,8 @@ import {
 
 export default function NavBar() {
   return (
-    <div className="flex">
-      <div className="mr-40">
+    <div className="flex text-black">
+      <div className="mx-auto">
         <NavigationMenu>
           <NavigationMenuList>
             <NavigationMenuItem>
@@ -56,7 +56,7 @@ export default function NavBar() {
           </NavigationMenuList>
         </NavigationMenu>
       </div>
-      <div className="ml-40">
+      <div className="ml-auto">
         <Button variant="outline">Log In</Button>
       </div>
     </div>
