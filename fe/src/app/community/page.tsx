@@ -7,7 +7,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 
-export default function DiscussionPage() {
+export default function CommunityPage() {
 
     const [thread, setThread] = useState<number>(-1);
 
@@ -16,7 +16,7 @@ export default function DiscussionPage() {
             <div className="w-1/5 overflow-y-auto">
                 {threads.map((thread) => (
                     <Card
-                        className="rounded-none p-3"
+                        className="rounded-none p-3 cursor-pointer"
                         onClick={() => setThread(thread.id)}
                         key={thread.id}
                     >
