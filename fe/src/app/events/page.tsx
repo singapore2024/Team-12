@@ -71,9 +71,6 @@ export default function Education() {
 
   return (
     <div className="bg-white">
-      <div className="p-10 bg-emerald-700">
-        <NavBar />
-      </div>
       <div className="bg-white py-10 flex flex-col items-center">
         <h2 className="text-center text-black max-w-2xl mb-10">
           Welcome to our Community Garden Events! We’re excited to bring together gardening 
